@@ -36,6 +36,7 @@ class Register():
                     accountsFile.write(str(value))
                     accountsFile.write(",")
             accountsFile.write("\n")
+        print("Your account has been created.")
         Register.accountsBasePlaceholder.clear()
     
 class LogIntoTheGame(): #Register ?

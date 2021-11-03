@@ -1,8 +1,6 @@
-from accounts import LogIntoTheGame, Register
-from startMenu import StartMenu
+class Room:
+    def __init__(self) -> None:
+        pass
 
-startMenuChoice = StartMenu.menuChoice()
-if startMenuChoice == 'login':
-    LogIntoTheGame.getLoginData()
-elif startMenuChoice == 'register':
-    Register.saveAccountInDB()
+    def enterRoom():
+        pass
