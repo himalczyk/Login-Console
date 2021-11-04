@@ -1,5 +1,5 @@
 class Room:
-    def __init__(self) -> None:
+    def __init__() -> None:
         pass
 
     def enterRoom():

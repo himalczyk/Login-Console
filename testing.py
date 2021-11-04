@@ -1,11 +1,7 @@
-choices = {
-    'login': ['login', 'log in', 'sign in', 'logging in', 'log', 'logg'],
-    'register': ['register', 'sign up', 'sign', 'registre', 'registr', 'register me']
-}
+import csv
 
-askWhereToGo = input('what to do?')
+def fetch_player():
+    with open ('accounts.csv', 'r+') as getPlayer:
+        print(getPlayer)
 
-if askWhereToGo in choices['login']:
-    print('login')
-elif askWhereToGo in choices['register']:
-    print('register')
+fetch_player()

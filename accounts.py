@@ -53,8 +53,9 @@ class LogIntoTheGame(): #Register ?
             for line in reader:
                 for value in line:
                     if(provideUsername and providePassword in value):
-                        break
-        print("Logged in succesfully")
+                        print("Logged in succesfully")
+                    else:
+                        print("Wrong username or password")
         return loggedInUser
 
 class CreatePlayer():
@@ -80,3 +81,17 @@ class CreatePlayer():
             playerName = askForPlayerName,
         )
         return CreatePlayer.writeToFilePlayerPlaceholder
+
+    def instantiate_from_csv(userName):
+        print("i am here")
+        with open('accounts.csv', 'a+') as getPlayer:
+            reader = csv.reader(getPlayer, delimiter=' ', quotechar='|')
+            for line in reader:
+                for cell in line:
+                    if(userName in cell):
+                        CreatePlayer(
+                            playerName=line[4]
+                        )
+                    print(CreatePlayer.playerName)
+                    print("works")
+        return CreatePlayer
