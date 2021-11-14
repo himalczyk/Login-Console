@@ -15,7 +15,7 @@ class StartMenu:
         print("[2] No account. I want to register!\n")
         print("[3] Exit\n")
 
-        askWhereToGo = input("""If you already have an account, you just need to login..otherwise you need to register\n\nChoose what would you like to do\n
+        askWhereToGo = input("""If you already have an account, you just need to login..otherwise you need to register\n\nType what would you like to do\n
         """)
         if askWhereToGo in choices['login']:
             moveInto = 'login'

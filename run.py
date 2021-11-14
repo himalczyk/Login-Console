@@ -6,7 +6,7 @@ startMenuChoice = StartMenu.menuChoice()
 
 if startMenuChoice == 'login':
     afterLogin = LogIntoTheGame.getLoginData()
-    CreatePlayer.instantiate_from_csv(str(afterLogin['userName']))
+    print(CreatePlayer.instantiate_from_csv(str(afterLogin['userName'])))
 elif startMenuChoice == 'register':
     afterRegister = Register.saveAccountInDB()
 elif startMenuChoice == 'exit':
@@ -19,7 +19,7 @@ if(afterLogin):
     if(askForAction=='start'):
         Room.enterRoom()
     elif(askForAction=='menu'):
-        startMenuChoice
+        StartMenu.menuChoice()
 if(afterRegister):
     print('Since you have registered succesfully, you can now login into the game')
     LogIntoTheGame.getLoginData()

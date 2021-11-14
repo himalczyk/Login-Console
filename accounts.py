@@ -47,16 +47,19 @@ class LogIntoTheGame(): #Register ?
 
         loggedInUser = {}
         loggedInUser['userName'] = provideUsername
+        userAuthenticated = False
 
         with open ('accounts.csv', 'r+') as checkDataAccountsFile:
-            reader = csv.reader(checkDataAccountsFile, delimiter=' ', quotechar='|')
-            for line in reader:
-                for value in line:
-                    if(provideUsername and providePassword in value):
-                        print("Logged in succesfully")
-                    else:
-                        print("Wrong username or password")
-        return loggedInUser
+                    reader = csv.reader(checkDataAccountsFile, delimiter=' ', quotechar='|')
+                    for line in reader:
+                        for value in line:
+                            if((provideUsername in value) and (providePassword in value)):
+                                userAuthenticated = True
+                                break
+        if(userAuthenticated==True):
+            return loggedInUser
+        else:
+            print("Wrong username or password. Try again.")
 
 class CreatePlayer():
     writeToFilePlayerPlaceholder = {}
@@ -82,16 +85,17 @@ class CreatePlayer():
         )
         return CreatePlayer.writeToFilePlayerPlaceholder
 
-    def instantiate_from_csv(userName):
-        print("i am here")
-        with open('accounts.csv', 'a+') as getPlayer:
+    def instantiate_from_csv(userName: str):
+        with open('accounts.csv', 'r+') as getPlayer:
             reader = csv.reader(getPlayer, delimiter=' ', quotechar='|')
             for line in reader:
+                print(line)
                 for cell in line:
+                    print(cell)
                     if(userName in cell):
-                        CreatePlayer(
-                            playerName=line[4]
+                        player = CreatePlayer(
+                            playerName=userName
                         )
-                    print(CreatePlayer.playerName)
-                    print("works")
-        return CreatePlayer
+                        print(player.playerName)
+                        break
+        return player
